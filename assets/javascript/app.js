@@ -12,14 +12,19 @@ $('#submit').on('click',function(){
 	rate = $('#rateInput').val().trim();
 	role = $('#roleInput').val().trim();
 	
-	$('#newRow').append("<tr><td>" + name +"</td><td>" + role + "</td><td>" + startDate + "</td><td>" + monthsWorked + "</td><td>" + rate + "</td><td>" + billed +"</td></tr>" )
-	
 	flamesBro.push({
 		name : name,
 		startDate : startDate,
 		rate : rate,
 		role : role
 	})
-	
+
 	return false;
 });
+
+flamesBro.on("child_added", function(snapshot){
+	$('#newRow').append("<tr><td>" + snapshot.val().name +"</td><td>" + snapshot.val().role + "</td><td>" + snapshot.val().startDate + "</td><td>" + snapshot.val().monthsWorked + "</td><td>" + snapshot.val().rate + "</td><td>" + snapshot.val().billed +"</td></tr>" )
+}, function(errorObject){
+	console.log("Errors handled: " + errorObject.code)
+});
+
