@@ -35,7 +35,7 @@ $('#submit').on('click',function(){
 });
 
 flamesBro.on("child_added", function(snapshot){
-	$('#newRow').append("<tr><td>" + snapshot.val().name +"</td><td>" + snapshot.val().role + "</td><td>" + snapshot.val().startDate + "</td><td>" + snapshot.val().monthsWorked + ' months' + "</td><td>" + '$ ' + snapshot.val().rate + "</td><td>" + '$ ' + snapshot.val().billed + "</td></tr>" )
+	$('#newRow').append("<tr><td>" + snapshot.val().name +"</td><td>" + snapshot.val().role + "</td><td>" + snapshot.val().startDate + "</td><td>" + snapshot.val().monthsWorked + ' months' + "</td><td>" + '$ ' + snapshot.val().rate + "</td><td>" + '$ ' + snapshot.val().billed + "</td><td><button class='btn btn-warning' id='edit'>Edit</button></td><td><button class='btn btn-danger' id='remove'>X</button></td></tr>" )
 }, function(errorObject){
 	console.log("Errors handled: " + errorObject.code)
 });
